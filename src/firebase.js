@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import {getStorage, ref} from 'firebase/storage'
 import { getDatabase } from "firebase/database";
-import {getStorage} from 'firebase/storage'
+import 'firebase/storage'
+// import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { GoogleAuthProvider, signInWithPopup, getAuth, onAuthStateChanged, signOut } from "firebase/auth"
 import { useState, useEffect } from "react";
 
@@ -13,12 +15,28 @@ const firebaseConfig = {
   storageBucket: "dynamic-todo-74809.appspot.com",
   messagingSenderId: "393770183253",
   appId: "1:393770183253:web:b149dfd9857e6d11a942dc",
-  measurementId: "G-06WFPH15PN"
+  measurementId: "G-06WFPH15PN",
+  storageBucket: "gs://dynamic-todo-74809.appspot.com"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
+
+export const storage1 = getStorage(app);
+export const storage = getStorage(app,"gs://dynamic-todo-74809.appspot.com")
+// const storageRef = ref(storage, 'images');
+
+
+// img configs
+export const imageConfig = {
+  quality: 0.2,
+  maxWidth: 800,
+  maxHeight: 600,
+  autoRotate: true
+}
+
+
 
 export const db = getDatabase(app);
 export const auth = getAuth();
@@ -27,7 +45,7 @@ export function logout(){
     return signOut(auth);
 }
 
-export const storage = getStorage(app)
+
 
 export function useAuth(){
     const [currentUser, setCurrentUser] = useState();
@@ -49,3 +67,4 @@ export const signGoog = () => {
         console.log(error);
     })
 }
+
