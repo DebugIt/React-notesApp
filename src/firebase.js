@@ -8,15 +8,7 @@ import { GoogleAuthProvider, signInWithPopup, getAuth, onAuthStateChanged, signO
 import { useState, useEffect } from "react";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC11Yi4N4cawOOidMM3WzowoXa6Ktu7ni0",
-  authDomain: "dynamic-todo-74809.firebaseapp.com",
-  databaseURL: "https://dynamic-todo-74809-default-rtdb.firebaseio.com",
-  projectId: "dynamic-todo-74809",
-  storageBucket: "dynamic-todo-74809.appspot.com",
-  messagingSenderId: "393770183253",
-  appId: "1:393770183253:web:b149dfd9857e6d11a942dc",
-  measurementId: "G-06WFPH15PN",
-  storageBucket: "gs://dynamic-todo-74809.appspot.com"
+//   USE YOUR OWN CONFIGS / CREDS
 };
 
 // Initialize Firebase
